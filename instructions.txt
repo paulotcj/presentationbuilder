@@ -1,0 +1,4 @@
+Remember to enable on your PHP.INI
+
+-file_uploads : should be on
+-upload_max_filesize : if you are uploading large files set value accordingly (eg. : 999M)

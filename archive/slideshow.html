@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+/* -------------------------------------- */
+html {
+  width: 100%;
+  /*overflow-x: hidden;*/
+/*  overflow-y: hidden;*/
+
+}
+body {
+  padding:0; 
+  margin:0;
+}
+/* -------------------------------------- */
+
+
+/* -------------------------------------- */
+#slideshow1 > div { 
+  position: absolute;
+  transform: translate(30px, 0px);
+  width: 1379px;
+  height: 300px;
+}
+
+.slides1
+{
+  width: 1379px;
+  height: 300px;
+  opacity: 1;
+}
+
+#slideshowArrows1 {
+  position: absolute;
+  transform: translate(30px, 0px);
+  width: 1379px;
+  height: 300px;
+}
+/* -------------------------------------- */
+
+
+
+/* Next & previous buttons */
+.slides1_prev, .slides1_next {
+  cursor: pointer;
+  position: absolute;
+  top: 0%;
+  text-align: center;
+  padding: 134px 0px 134px 0%;
+  width: 10%;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5em;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  opacity:  1;
+}
+
+/* Position the "next button" to the right */
+.slides1_next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+
+/* On hover, add a black background color with a little bit see-through */
+.slides1_prev:hover, .slides1_next:hover {
+  background-color: rgba(0,0,0,0.6);
+  opacity: 1;
+}
+
+
+
+
+
+/* -------------------------------------- */
+#slideshow2 > div { 
+  position: absolute;
+  transform: translate(70px, 300px);
+  width: 1000px;
+  height: 250px;
+}
+
+.slides2
+{
+  width: 1000px;
+  height: 250px;
+}
+
+#slideshowArrows2 {
+  position: absolute;
+  transform: translate(70px, 300px);
+  width: 1000px;
+  height: 250px;
+}
+
+/* Next & previous buttons */
+.slides2_prev, .slides2_next {
+  cursor: pointer;
+  position: absolute;
+  top: 0%;
+  text-align: center;
+  padding: 109px 0px 109px 0px;   /*43.7% ~ 43% of the image height*/
+  width: 10%;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5em;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  opacity:  1;
+}
+
+/* Position the "next button" to the right */
+.slides2_next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+
+/* On hover, add a black background color with a little bit see-through */
+.slides2_prev:hover, .slides2_next:hover {
+  background-color: rgba(0,0,0,0.6);
+  opacity: 1;
+}
+
+
+
+/* -------------------------------------- */
+
+
+
+
+</style>
+<script type="text/javascript" src="jquery-1.12.4.js"></script>
+<script type="text/javascript" src="jquery-ui.js"></script>
+<script type="text/javascript">
+
+var intervals    = [];
+var fadeDuration = [];
+var slideTimmer  = [];
+
+
+
+ $(document).ready(function(){
+
+    //-----------------------------------------------------------
+
+    // slideshow1
+    $("#slideshow1 > div:gt(0)").hide();
+    fadeDuration["#slideshow1"] = 500;
+    slideTimmer["#slideshow1"]  = 3000;
+    startSlideShow("#slideshow1");
+
+
+
+    // slideshow2
+    $("#slideshow2 > div:gt(0)").hide();
+    fadeDuration["#slideshow2"] = 500;
+    slideTimmer["#slideshow2"]  = 3000;
+    startSlideShow("#slideshow2");     
+
+
+   
+    //----------------------------------------------------------- 
+
+  });
+
+
+
+//-----------------------------------------------------------
+function startSlideShow(strSlideID)
+{
+  intervals[strSlideID] = setInterval(function() 
+  {
+    nextSlide(strSlideID, true)
+  }, slideTimmer[strSlideID]); 
+}
+//-----------------------------------------------------------
+
+
+//-----------------------------------------------------------
+function prevSlide(strSlideID , p_timmer = false)
+{
+  //----------------------------------
+  //default manipulation PREV SLIDE
+  if ( $( strSlideID + ' > div:visible')[0] === $(strSlideID + ' > div:first')[0] )
+  {
+    $(strSlideID + ' > div:last').fadeIn(fadeDuration[strSlideID]);
+    $(strSlideID + ' > div:first').fadeOut(fadeDuration[strSlideID]);
+  }
+  else
+  {
+    $(strSlideID + ' > div:visible').fadeOut(fadeDuration[strSlideID]).prev().fadeIn(fadeDuration[strSlideID]).end();
+  }
+  //----------------------------------
+
+
+  if ( p_timmer === false ) 
+  {
+    clearInterval(intervals[strSlideID]);
+    startSlideShow(strSlideID);
+  }
+}
+//-----------------------------------------------------------
+
+
+//-----------------------------------------------------------
+function nextSlide(strSlideID , p_timmer = false)
+{
+  //----------------------------------
+  //default manipulation NEXT SLIDE
+  if ( $(strSlideID + ' > div:visible')[0] === $(strSlideID + ' > div:last')[0] )
+  {
+    $(strSlideID + ' > div:first').fadeIn(fadeDuration[strSlideID]);
+    $(strSlideID + ' > div:last').fadeOut(fadeDuration[strSlideID]);
+  }
+  else
+  {
+    $(strSlideID + ' > div:visible').fadeOut(fadeDuration[strSlideID]).next().fadeIn(fadeDuration[strSlideID]).end();
+  }
+  //----------------------------------
+
+
+  if ( p_timmer === false ) 
+  {
+    clearInterval(intervals[strSlideID]);
+    startSlideShow(strSlideID);
+  }
+
+}
+//-----------------------------------------------------------
+
+
+
+</script>
+</head>
+<body >
+
+
+<!-- ------------------------------------------ -->
+<!-- slideshow -->
+<div id="slideshow1">
+  <div>
+      <img class="slides1" src="1_img_fjords_wide2.jpg" style="width:100%">
+  </div>
+  <div>
+      <img class="slides1" src="2_img_nature_wide2.jpg" style="width:100%">
+  </div>  
+  <div>
+      <img class="slides1" src="3_img_mountains_wide2.jpg" style="width:100%">
+  </div>
+</div>
+<div id="slideshowArrows1">
+    <a class="slides1_prev" onclick="prevSlide('#slideshow1')">&#10094;</a>
+    <a class="slides1_next" onclick="nextSlide('#slideshow1')">&#10095;</a>  
+</div>
+<!-- ------------------------------------------ -->
+
+
+<!-- ------------------------------------------ -->
+<!-- slideshow -->
+<div id="slideshow2">
+  <div>
+      <img class="slides2" src="img_nature_wide.jpg" style="width:100%">
+  </div>
+  <div>
+     <img class="slides2" src="img_snow_wide.jpg" style="width:100%">
+  </div>  
+  <div>
+     <img class="slides2" src="img_mountains_wide.jpg" style="width:100%">
+  </div>
+</div>
+<div id="slideshowArrows2">
+    <a class="slides2_prev" onclick="prevSlide('#slideshow2')">&#10094;</a>
+    <a class="slides2_next" onclick="nextSlide('#slideshow2')">&#10095;</a>  
+</div>
+<!-- ------------------------------------------ -->
+
+
+
+
+
+</body>
+</html> 

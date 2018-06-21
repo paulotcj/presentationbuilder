@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+/* -------------------------------------- */
+html {
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+
+}
+body {
+  padding:0; 
+  margin:0;
+  background-color : green;
+}
+/* -------------------------------------- */
+
+
+/*###############################################################################*/
+/*###############################################################################*/
+/*###############################################################################*/
+/*###############################################################################*/
+/*###############################################################################*/
+/*###############################################################################*/
+
+
+/* -------------------------------------- */
+#slideshow1 > div { 
+  position: absolute;
+  transform: translate(0px, 0px);
+  width: 1379px;
+}
+
+.slides1
+{
+  width: 1379px;
+  height: 300px;
+}
+/* -------------------------------------- */
+
+
+/* -------------------------------------- */
+
+.slides2 {
+  position: absolute;
+  transform: translate(600px, 300px);  
+  height: 200px;
+  width: 200px;
+  opacity: 0.5;
+}
+
+/*.slides2:hover {
+  opacity: 0.7;
+}*/
+/* -------------------------------------- */
+
+
+
+/* -------------------------------------- */
+.video3 {
+  position: absolute;
+  transform: translate(0px, 300px);
+  width: 1379px;
+
+}
+/* -------------------------------------- */
+
+
+/* -------------------------------------- */
+#slideshow4 { 
+  position: absolute;
+  transform: translate(1070px, 570px);
+  opacity: 0.5;
+}
+
+.slideshow4
+{
+  width: 300px;
+  height: 200px;
+}
+/* -------------------------------------- */
+
+
+
+
+</style>
+<script type="text/javascript" src="jquery-1.12.4.js"></script>
+<script type="text/javascript" src="jquery-ui.js"></script>
+<script type="text/javascript">
+
+
+ $(document).ready(function(){
+
+    //-----------------------------------------------------------
+    // slideshow
+    $("#slideshow1 > div:gt(0)").hide();
+
+    setInterval(function() 
+    {
+      $('#slideshow1 > div:first')
+        .fadeOut(500)
+        .next()
+        .fadeIn(500)
+        .end()
+        .appendTo('#slideshow1');
+    }, 3000); 
+    //----------------------------------------------------------- 
+
+
+
+    //-----------------------------------------------------------
+    // slideshow
+    $("#slideshow4 > div:gt(0)").hide();
+
+    setInterval(function() 
+    {
+      $('#slideshow4 > div:first')
+        .fadeOut(500)
+        .next()
+        .fadeIn(500)
+        .end()
+        .appendTo('#slideshow4');
+    }, 6000); 
+    //-----------------------------------------------------------     
+
+  });
+
+
+</script>
+</head>
+<body >
+
+<!-- ------------------------------------------ -->
+<!-- slideshow -->
+
+<div id="slideshow1">
+  <div>
+      <img class="slides1" src="1_img_fjords_wide2.jpg">
+
+  </div>
+  <div>
+     <img class="slides1" src="2_img_nature_wide2.jpg">
+  </div>  
+  <div>
+     <img class="slides1" src="3_img_mountains_wide2.jpg">
+  </div>
+</div>
+<!-- ------------------------------------------ -->
+
+<!-- ------------------------------------------ -->
+<!-- video -->
+<video  class="video3" autoplay loop>
+  <source src="demo.mp4" type="video/mp4">
+</video>
+<!-- ------------------------------------------ -->
+
+<!-- ------------------------------------------ -->
+<!-- static image -->
+<img class="slides2"  src="logo-1-2a.png">
+<!-- ------------------------------------------ -->
+
+
+
+
+<!-- ------------------------------------------ -->
+<!-- slideshow -->
+<div id="slideshow4">
+  <div>
+      <img class="slideshow4" src="hk1.jpg">
+  </div>
+  <div>
+      <img class="slideshow4" src="hk2.jpg">
+  </div>  
+  <div>
+      <img class="slideshow4" src="hk3.jpg">
+  </div>
+  <div>
+      <img class="slideshow4" src="hk4.jpg">
+  </div>
+  <div>
+      <img class="slideshow4" src="hk5.jpg">
+  </div>
+  <div>
+      <img class="slideshow4" src="hk6.jpg">
+  </div>        
+</div>
+<!-- ------------------------------------------ -->
+
+
+
+
+
+</body>
+</html> 

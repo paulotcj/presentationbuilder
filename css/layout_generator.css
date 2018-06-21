@@ -1,0 +1,252 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* -------------------------------------- */
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    border-radius: 8px;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.modalLink  {
+  padding: 3px;  
+  line-height: 150%;
+
+  text-decoration: none;
+  transition: 0.3s;
+  color: gray;
+
+  
+}
+.modalLink:hover {
+ font-weight: bold;
+}
+
+
+/* -------------------------------------- */
+/*drag and drop elements*/
+
+
+.resize-drag {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.placeholderInfo {
+  outline: none;
+  text-decoration: none;
+  color : #f2f2f2;
+  background: #a6a6a6; 
+  border-radius: 4px; 
+  padding: 3px;
+  transition: 0.6s;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  font-weight: bold;
+  display: inline-block;
+}
+
+
+.placeholderInfo:hover {
+  background: #999999;
+}
+
+/*----------------------------------------*/
+/*various elements and controls*/
+.inputText
+{
+  width: 6.65em;
+}
+
+.inputTextProjectName
+{
+  width: 16.40em;
+}
+
+#panelColor
+{
+  width: 6.55em;
+}
+
+.tableHeaderHint
+{
+  color:gray; font-size: 65%; 
+  height:1.70em;
+}
+
+.file_upload
+{
+  display: block;
+}
+
+#modalProjectsList {
+  max-height: 25em;
+  overflow: auto;
+}
+
+
+.p_projects {
+  font-size: 0.85em;
+  margin: 3px;
+  cursor: pointer;
+  line-height: 150%;
+  transition: 0.3s;
+  color: gray;
+  padding-left: 1em;
+
+  
+}
+.p_projects:hover {
+ font-weight: bold;
+}
+
+/*----------------------------------------*/
+
+/* 3rd party button style */
+.btnLayGen {
+  -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+  box-shadow:inset 0px 1px 0px 0px #ffffff;
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #c9c9c9));
+  background:-moz-linear-gradient(top, #ededed 5%, #c9c9c9 100%);
+  background:-webkit-linear-gradient(top, #ededed 5%, #c9c9c9 100%);
+  background:-o-linear-gradient(top, #ededed 5%, #c9c9c9 100%);
+  background:-ms-linear-gradient(top, #ededed 5%, #c9c9c9 100%);
+  background:linear-gradient(to bottom, #ededed 5%, #c9c9c9 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#c9c9c9',GradientType=0);
+  background-color:#ededed;
+  -moz-border-radius:6px;
+  -webkit-border-radius:6px;
+  border-radius:6px;
+  border:1px solid #dcdcdc;
+  display:inline-block;
+  cursor:pointer;
+  color:#777777;
+  font-weight:bold;
+  padding:5px 6px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #ffffff;
+}
+.btnLayGen:hover {
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c9c9c9), color-stop(1, #ededed));
+  background:-moz-linear-gradient(top, #c9c9c9 5%, #ededed 100%);
+  background:-webkit-linear-gradient(top, #c9c9c9 5%, #ededed 100%);
+  background:-o-linear-gradient(top, #c9c9c9 5%, #ededed 100%);
+  background:-ms-linear-gradient(top, #c9c9c9 5%, #ededed 100%);
+  background:linear-gradient(to bottom, #c9c9c9 5%, #ededed 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c9c9c9', endColorstr='#ededed',GradientType=0);
+  background-color:#c9c9c9;
+}
+.btnLayGen:active {
+  position:relative;
+  top:1px;
+}
+
+/*----------------------------------------*/
+
+
+/*especific elements*/
+
+#screenSimulationDiv {
+  border-style: solid; 
+  border-width: thin; 
+  border-color: silver; 
+  background-color: #ffffff;
+}
+
+#divControls {
+  border-style: solid; 
+  border-width: thin; 
+  border-color: silver; 
+  border-radius: 8px; 
+  border-style: dotted;
+}
+
+#btnAddPlaceHolder {
+  margin-left: 0.2em ; 
+  margin-top: 1em;
+}
+
+#btnWriteToFile, #btnStoredInside, #btnProjects {
+  margin-left: 3em;
+}
+
+/*#placeHolderDetails_table {
+  float:left; 
+  display: inline-block; 
+  padding-right: 50px;
+}
+*/
+#btnModalOk {
+  padding-left: 1em; 
+  padding-right: 1em;
+}
+
+#btnDeleteFiles {
+  margin-left: 2em;
+}
+
+#modalProjectsList {
+  width: 15em; 
+  border-left-style: solid; 
+  border-width: thin; 
+  border-color: silver; 
+}
+
+.slideshow_CtrlDetails {
+  display: none;
+}

@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Drag and Resize</title>
+  
+  <!-- ----------------------------------------------------------------------------- -->
+  <!-- style -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/layout_generator.css">
+  <style>
+  </style>
+  <!-- ----------------------------------------------------------------------------- -->
+
+  <!-- ----------------------------------------------------------------------------- -->
+  <!-- scripts -->
+  <script type="text/javascript" src="js/jquery-1.12.4.js"    > </script> <!-- standard jquery                 -->
+  <script type="text/javascript" src="js/jquery-ui.js"        > </script> <!-- standard jquery                 -->
+  <script type="text/javascript" src="js/interact.js"         > </script> <!-- js necessary to drag and resize -->
+  <script type="text/javascript" src="js/layout_generator.js" > </script> <!-- js necessary to drag and resize -->
+  <script type="text/javascript" src="js/fileUpload.js"       > </script>
+  <script type="text/javascript"                              >
+
+    //scripts here
+
+  </script>
+  <!-- ----------------------------------------------------------------------------- -->
+</head>
+<body>
+
+
+
+<!-- ######################################################################################################### -->
+<!-- screenSimulationDiv - where the action happens -->
+<div id="screenSimulationDiv" class="resize-container" >
+
+  <!--
+  <div class="resize-drag" >
+    <p style = "  padding:0; margin:0;  " >Resize from any edge or corner</p>
+    <input type="hidden" class="type" value="slideShow">
+    <input type="hidden" class="fadeDuration" value="500">
+    <input type="hidden" class="slideDuration" value="3000">
+    <input type="hidden" class="opacity" value="1">
+    <input type="hidden" class="file1" value="aaa0.jpg">
+    <input type="hidden" class="file2" value="aaa1.jpg">
+    <input type="hidden" class="file3" value="aaa2.jpg">
+    <a href='javascript:void(0);'  class='placeholderInfo' >Details</a>
+  </div>
+  -->
+
+</div>
+
+</br></br>
+<!-- ######################################################################################################### -->
+
+
+<!-- ######################################################################################################### -->
+<!-- ParenPanel details and containers details -->
+<div id="divControls" >
+  <button id="btnAddPlaceHolder" type="button" class="btnLayGen" >Add Placeholder</button>
+  <button id="btnWriteToFile"    type="button" class="btnLayGen" >Write File</button>
+  <button id="btnStoredInside"   type="button" class="btnLayGen" >Stored Inside</button>
+  <button id="btnProjects"       type="button" class="btnLayGen" >Open Projects</button>
+
+  </br></br></br>
+
+
+  <!-- ----------------------------------------------------------------------------- -->
+  <table>
+    <tr>
+      <td>Project Name</td>
+      <td>
+        
+      </td>
+    </tr>   
+    <tr>
+      <td colspan="2" class="tableHeaderHint" >
+        <input id="projectName" class="inputTextProjectName" type="text">
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" class="tableHeaderHint">Presentation Panel</td>
+    </tr>
+    <tr>
+      <td>Width</td>
+      <td><input id="panelWidth"  class="inputText" type="number" min="1" max="8000"></td>
+    </tr>    
+    <tr>
+      <td>Height</td>
+      <td><input id="panelHeight" class="inputText" type="number" min="1" max="8000"></td>
+    </tr>  
+    <tr>
+      <td>Background color</td>
+      <td>
+        <input type="color" id="panelColor" value="#ff0000">
+      </td>
+    </tr>
+
+    <!-- ----------------------------------------------------------------------------- -->
+    <!-- Placeholder details -->
+    <tr>
+      <td colspan="2" class="tableHeaderHint">Attributes last Placeholder clicked</td>
+    </tr> 
+    <tr>
+      <td>Width</td>
+      <td>
+        <input id="containerWidth" class="inputText"  type="number" min="1" max="8000">
+        <input  type="hidden" id="hidLastClickedContainer" >
+      </td>
+    </tr>    
+    <tr>
+      <td>Height</td>
+      <td><input id="containerHeight" class="inputText"  type="number" min="1" max="8000"></td>
+    </tr>
+    <tr>
+      <td>Pos X axis</td>
+      <td><input id="containerPosX" class="inputText"  type="number" ></td>
+    </tr>
+    <tr>
+      <td>Pos Y axis</td>
+      <td><input id="containerPosY" class="inputText"  type="number" ></td>
+    </tr>    
+  </table> 
+  <!-- ----------------------------------------------------------------------------- -->
+
+</div>
+<!-- ######################################################################################################### -->
+
+
+
+
+
+<!-- ######################################################################################################### -->
+<!-- Modal Popup -->
+<div id="placeHolderDetails" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" onclick="document.getElementById('placeHolderDetails').style.display = 'none'; ">&times;</span>
+    
+    <table >
+      <tr >
+        <td valign="top" >
+
+
+          <!-- ----------------------------------------------------------------------------- -->
+          <!-- Container Details -->
+          <table id="placeHolderDetails_table" >
+            <tr>
+              <td style="width: 9.5em;">Type:</td>
+              <td>
+                <select style="height: 1.65em; width: 7em;" id ="optionTypeSelect">
+                  <option value="staticImage" >Static Image</option>
+                  <option value="video"       >Video</option>
+                  <option value="slideShow"   >Slide Show</option>
+                  
+                </select>
+              </td>
+            </tr> 
+            <tr>
+              <td>Opacity</td>
+              <td><input  id="inputOpacity"         class="inputText" type="number" ></td>
+            </tr>                 
+            <tr class="slideshow_CtrlDetails">
+              <td>Slides duration (ms)</td>
+              <td><input  id="inputSlidesDuration"  class="inputText" type="number" min="1" max="8000"></td>
+            </tr>  
+            <tr class="slideshow_CtrlDetails">
+              <td>Fade time (ms)</td>
+              <td><input  id="inputFadeTime"        class="inputText" type="number"  min="1" max="8000"></td>
+            </tr>
+            <tr class="slideshow_CtrlDetails">
+              <td>Control Arrows</td>
+              <td>
+                <select style="height: 1.65em; width: 7em;" id ="optionIncludeArrows">
+                  <option value="true"  >Include Arrows</option>
+                  <option value="false" >Don't Include</option>
+                </select>
+
+
+              </td>
+            </tr>            
+          </table> 
+          <!-- ----------------------------------------------------------------------------- --> 
+
+
+        </td>
+        <td valign="top">
+
+
+            <!-- ----------------------------------------------------------------------------- -->
+            <!-- File Details -->
+            <div id="modalContentFiles" >
+              <a class="modalLink" href="media/hk1.jpg" target="_blank">media/hk1.jpg</a>
+              <a href="javascript:void(0);" onclick=" alert('1'); " target="_blank"><img src="media/del.png" alt="Delete"></a>
+              </br>
+            </div>
+            <form action="#" enctype="multipart/form-data" method="post">  
+            <input type="file" class="file_upload" name="file_upload" id="file_upload" multiple accept="image/*,video/*"  >
+            
+            <input type="submit" class="btnLayGen" id="btnSubmit"  name="submit" value="Submit" >
+            </form>
+
+            <!-- ----------------------------------------------------------------------------- -->
+
+
+        </td>
+      </tr>
+    </table>
+   
+
+
+    <!-- ----------------------------------------------------------------------------- -->
+    <!-- Save and Delete controls -->
+    </br></br></br></br></br></br>
+ 
+    </br>
+    <button id="btnModalOk"        type="button"  class="btnLayGen" >OK</button>
+    <button id="btnDeleteFiles"    type="button"  class="btnLayGen" >Delete</button>
+    <input  id="hidOpenDetailsDiv" type="hidden"  value="">
+
+    </br></br></br></br></br></br>
+    <!-- ----------------------------------------------------------------------------- -->
+    
+
+  </div>
+</div>
+<!-- ######################################################################################################### -->
+
+
+<!-- ######################################################################################################### -->
+<div id="modalProjects" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" onclick="document.getElementById('modalProjects').style.display = 'none'; ">&times;</span>
+
+    <table>
+      <tr>
+        <td style="width: 20em"> 
+          <form> 
+            <p>Project Name</p>
+            <input type="text" onkeyup="searchProjects(this.value)">
+          </form>
+        </td>
+        <td>
+          <div id="modalProjectsList">
+          </div>          
+        </td>        
+      </tr>
+    </table>
+
+  </div>
+</div>
+<!-- ######################################################################################################### -->
+
+
+
+
+</body>
+</html>
